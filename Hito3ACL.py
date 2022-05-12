@@ -1,23 +1,30 @@
 from selenium import webdriver
 import time
 
-nombre = "El Pepe"
-apellido = "Ete Sech"
+nombre = "NombrE"
+apellido = "Apellido"
 telefono = "56912345678"
-mail = "xofob99898@sartess.com"
-contrasena = "AnAshEiXdD_"
+mail = "catew75673@eoscast.com"
+contrasena = "HolaHola1234_"
+
 driver = webdriver.Chrome(r'C:\Users\gndon\Desktop\chromedriver_win32\chromedriver.exe')
-driver.get("https://seguro.marca.com/registro/v3/?view=signup")
+driver.get("https://familyshop.cl/on/demandware.store/Sites-FamilyShop-Site/es_CL/Login-Show")
+
 time.sleep(2)
-driver.find_element_by_xpath('//*[@id="didomi-notice-agree-button"]').click()
-time.sleep(4)
-pathB = driver.find_element_by_xpath('//*[@id="inputEmailSignup"]')
+
+driver.find_element_by_xpath('//*[@id="register-tab"]').click()
+pathB = driver.find_element_by_xpath('//*[@id="registration-form-fname"]')
+pathB.send_keys(nombre)
+pathB = driver.find_element_by_xpath('//*[@id="registration-form-lname"]')
+pathB.send_keys(apellido)
+pathB = driver.find_element_by_xpath('//*[@id="registration-form-phone"]')
+pathB.send_keys(telefono)
+pathB = driver.find_element_by_xpath('//*[@id="registration-form-email"]')
 pathB.send_keys(mail)
-time.sleep(3)
-pathB = driver.find_element_by_xpath('//*[@id="inputPasswordSignup"]')
+pathB = driver.find_element_by_xpath('//*[@id="registration-form-email-confirm"]')
+pathB.send_keys(mail)
+pathB = driver.find_element_by_xpath('//*[@id="registration-form-password"]')
 pathB.send_keys(contrasena)
-time.sleep(3)
-driver.find_element_by_xpath('//*[@id="iron-page-signup"]/div[1]/div/form/div/div[2]/button').click()
-driver.find_element_by_xpath('//*[@id="iron-page-signup"]/div[1]/div/form/div/div[1]/div[3]/div/div').click()
-time.sleep(4)
-driver.find_element_by_xpath('//*[@id="iron-page-signup"]/div[1]/div/form/div/div[1]/div[4]/div/div[1]/div').click()
+pathB = driver.find_element_by_xpath('//*[@id="registration-form-password-confirm"]')
+pathB.send_keys(contrasena)
+driver.find_element_by_xpath('//*[@id="register"]/form/button').click()
